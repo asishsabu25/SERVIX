@@ -1,11 +1,5 @@
 <?php
-session_start();
-include('database.php');
-$userfname = $_SESSION[ "fname" ];
-$userlname=$_SESSION["lname"];
-//$sql="update login set status=0 where username='$u'";
-//mysqli_query($conn,$sql);
-session_destroy();
-header('Location:index.php');   
-
-?>
+	  session_start();
+	  session_destroy();
+	echo "<script> parent.location.href='../index.php'; </script>";
+  ?>
