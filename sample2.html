@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Register form</title>
+	
+	<style>
+
+
+div{
+    margin:3px auto;
+    width:75%;
+    padding:30px;
+    font-size:20px;
+    background-color:#006699;
+}
+input[type=text]
+{
+    width:100%;
+     padding:14px 20px;
+    margin:8px o;
+    display: inline-block;
+    border:4px solid #ccc;
+    box-sizing:border-box;
+    font-size: 14px;
+
+}
+input[type=submit]
+{
+    width:100%;
+    background-color: red;
+    color:white ;
+    padding:14px 20px;
+    margin:8px o;
+    border:none;
+    border-radiurs:4px;
+    cursor:pointer;
+    font-size:16px;
+
+
+}
+input[type=submit]:hover
+{
+	background-color: blue;
+}
+h1
+{
+	color:blue;
+	text-align:center;
+}
+
+select
+{
+	 width:100%;
+     padding:14px 20px;
+    margin:8px o;
+    display: inline-block;
+    border:4px solid #ccc;
+    box-sizing:border-box;
+    font-size: 14px;
+}
+span
+	{
+		color: red;
+		font-size: 18px;
+	}
+div label
+
+
+</style>
+</head>
+<body>
+	<h1>worker registration form</h1>
+	<div>
+		<form action="connection2.php" method="post"  onsubmit="return validation()">
+		<form name="regform" method="post">
+		<label for="firstname">firstname<br>
+		<input type="text" id="firstname" name="firstname" placeholder="enter first name">
+		<span id="ffirstname"></span></label><br><br>
+		<label for="lastname">lastname</label><br/>
+		<input type="text" id="lastname" name="lastname" placeholder="enter last name" >
+		<span id="llast"></span></label><br///><br>
+		<label for gender>gender</label><br//>
+		<input type="radio" id="gender"value="male" name="gender" >
+		<label for="male">Male</label>
+		<input type="radio" id="gender"value="female" name="gender">
+		<label for="female">Female</label><br///>
+		<span id="ggender"></span></label><br///><br>
+		<label for="country">country</label>
+		<select id="country"name="country">
+			<option value=""></option>
+			<option value="india">India</option>
+			<option value="japan">Japan</option>
+		</select><br>
+		<span id="ccountry"></span></label><br///><br>
+		
+		<label for="aadharno">aadharno</label><br///>
+		<input type="text" id="aadharno" name="aadharno" placeholder="enter aadhar no"><br///>
+		<span id="aaadhar"></span></label><br///><br><br///>
+		<label for="role">job</label>
+		<select id="job"name="job">
+			<option value=""></option>
+			<option value="carpenter">carpenter</option>
+			<option value="electrician">electrician</option>
+		</select><br>
+		<span id="jobs"></span></label><br///>
+		<br>
+		<label for="email">email  </label>
+		<input type="text"id="email" name="email" placeholder="xy@gmail.com"><br>
+        <span id="emaill"></span></label>
+              <br><br>
+
+         <label for ="mobile">mobile</label><br>
+	     <input type="text"id="mobile" name="mobile" placeholder="mobile no with out +91"><br>
+	     <span id="mobilee"></span>
+	     <br><br>
+
+        <label for="address">address </label>
+        <input type="text" id="address" name="address" placeholder="address" ><br>
+        <span id="addresss"></span><br///><br>
+        
+	     <label for="district">district</label>
+		<select id="district" name="district">
+			<option value=""></option>
+			<option value="alp">alp</option>
+			<option value="ekm">ekm</option>
+		</select><br>
+		<span id="districts"></span></label><br///><br>
+	
+		<label for ="pincode">pincode</label><br>
+	     <input type="text" id="pincode" name="pincode" placeholder="pin"><br>
+	     <span id="pinn"></span>
+	     <br>
+		<br>
+        <label for="pass">password             
+                    </label><br>
+        
+
+                    <input type="text" id="pass" name="password" placeholder="enter password" ><br>
+                    <span id="passs"></span><br><br>
+         <label for="conpass">confirmpassword
+                    </label>
+                    <input type="text" id="conpass" name="confirmpassword" placeholder="reenter password" >  <br>  
+                    <span id="conpasss"></span><br><br>       
+		<input type="submit" value="submit">
+
+		</form>	
+	</div>
+	<script type="text/javascript">
+		function validation()
+		{
+
+
+			var firstname =document.getElementById('firstname').value;//give id//
+			var lastname =document.getElementById('lastname').value;
+			var gender =document.getElementById('gender').value;
+			var country =document.getElementById('country').value;
+			var aadharno =document.getElementById('aadharno').value;
+			var job =document.getElementById('job').value;
+			var email =document.getElementById('email').value;
+			var mobile =document.getElementById('mobile').value;
+			var address =document.getElementById('address').value;
+			var district =document.getElementById('district').value;
+			var pincode =document.getElementById('pincode').value;
+			var pass =document.getElementById('pass').value;
+			var conpass =document.getElementById('conpass').value;
+
+
+			if(firstname == "")
+			{
+				document.getElementById('ffirstname').innerHTML="please enter your name";
+				return false;
+			}
+
+			 if(firstname.length<3)//length number
+
+			    {
+					document.getElementById('ffirstname').innerHTML="enter more than 3 letters";
+				return false;
+			     }
+			    if(!isNaN(firstname))//length checking
+
+			    {
+					document.getElementById('ffirstname').innerHTML="please use alpahabets";
+				return false;
+			    }
+			else
+			{
+				document.getElementById('ffirstname').innerHTML="";
+			}
+			if(lastname == "")
+			{
+				document.getElementById('llast').innerHTML="enter your lastname";
+				return false;
+			}
+			   
+			if(gender == "")
+			{
+				document.getElementById('ggender').innerHTML="please choose gender";
+				return false;
+			}
+			if(country == "")
+			{
+				document.getElementById('ccountry').innerHTML="please choose state";
+				return false;
+			}
+			if(aadharno == "")
+			{
+				document.getElementById('aaadhar').innerHTML="please enter aadharno";
+				return false;
+			}
+			  if(aadharno.length<9)
+			    {
+			  	  document.getElementById('aaadhar').innerHTML="please enter correct number ";
+			  	 return false;
+
+			    }
+			    else
+			  {
+				document.getElementById('aadharno').innerHTML="";
+			  }
+			if(job == "")
+			{
+				document.getElementById('jobs').innerHTML="please enter your trade";
+				return false;  
+
+			}
+			if(email == "")
+			{
+				document.getElementById('emaill').innerHTML="please enter your email";
+				return false;  
+
+			}
+			if(email.indexOf('@')<=0)
+			  {
+				document.getElementById('emaill').innerHTML="please enter a valid email";
+				
+
+			  }
+			  else
+			  {
+				document.getElementById('emaill').innerHTML="";
+			  }
+			if(mobile == "")
+			{
+				document.getElementById('mobilee').innerHTML="please enter mobile no";
+               return false;
+			}
+			   if(mobile.length<2)
+			    {
+			  	  document.getElementById('mobilee').innerHTML="please enter correct number ";
+			  	 return false;
+
+			    }
+			    if(isNaN(mobile))
+			    {
+			  	  document.getElementById('mobilee').innerHTML="please use numbers only";
+			  	 return false;
+			    }
+			    
+			  else
+			   {
+			  	  document.getElementById('mobilee').innerHTML="ok ";
+
+
+			   }
+			if(address == "")
+			{
+				document.getElementById('addresss').innerHTML="please fill address box";
+				return false;
+			}
+			if(district == "")
+			{
+				document.getElementById('districts').innerHTML="please choose district";
+				return false;
+			}
+			if(pincode == "")
+			{
+				document.getElementById('pinn').innerHTML="enter your pin";
+               return false;
+			}
+			  if(pincode.length<3)
+			    {
+			  	  document.getElementById('pinn').innerHTML="please enter correct pin ";
+			  	 return false;
+
+			    }
+			    if(isNaN(pincode))
+			    {
+			  	  document.getElementById('pinn').innerHTML="use number only";
+			  	 return false;
+			    }
+			    
+			   else
+			    {
+			  	  document.getElementById('pinn').innerHTML="ok ";
+			  	}
+			if(pass == "")
+			{
+				document.getElementById('passs').innerHTML="please provide password";
+				return false;
+
+			}
+
+			  if(pass.length<8)
+			  {
+				document.getElementById('passs').innerHTML="please use at least 8 characters password";
+				return false;
+
+			  }
+			  if(pass.search(/[0-9]/)==-1)
+			  {
+				document.getElementById('passs').innerHTML="please use at least one numeric characters in the box";
+				return false;
+
+			  }
+			  if(pass.search(/[a-z]/)==-1)
+			  {
+				document.getElementById('passs').innerHTML="please use at least one lowercase characters in the box";
+				return false;
+
+			  }
+			  if(pass.search(/[!\@\#\$\^\*\&]/)==-1)
+			  {
+				document.getElementById('passs').innerHTML="please use at least one special characters in the box";
+				return false;
+
+			  }
+			  else
+			  {
+				document.getElementById('passs').innerHTML="";
+			  }
+			if(conpass != pass)
+			{
+				document.getElementById('conpasss').innerHTML="psssword does not match";
+				return false;
+
+
+			}
+			else
+			  {
+				document.getElementById('conpasss').innerHTML="";
+			  }
+
+		}
+	</script>
+
+	</body>
+</html>
+                    
