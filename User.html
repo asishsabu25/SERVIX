@@ -1,0 +1,363 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Register form</title>
+	
+	<style>
+
+
+div{
+    margin:3px auto;
+    width:75%;
+    padding:30px;
+    font-size:20px;
+    background-color:#006699;
+}
+input[type=text]
+{
+    width:100%;
+     padding:14px 20px;
+    margin:8px o;
+    display: inline-block;
+    border:4px solid #ccc;
+    box-sizing:border-box;
+    font-size: 14px;
+
+}
+input[type=submit]
+{
+    width:100%;
+    background-color: rgba(0, 255, 136, 0.76);
+    color:white ;
+    padding:14px 20px;
+    margin:8px o;
+    border:none;
+    border: radiurs 4px;
+	box-sizing: border-box;
+    cursor:pointer;
+    font-size:16px;
+
+
+}
+input[type=submit]:hover
+{
+	background-color: blue;
+}
+h1
+{
+	color:blue;
+	text-align:center;
+}
+
+select
+{
+	 width: 50%;
+     padding:14px 20px;
+    margin:8px o;
+    display: inline-block;
+    border:4px solid #ccc;
+    box-sizing:border-box;
+    font-size: 14px;
+}
+span
+	{
+		color: red;
+		font-size: 12px;
+	}
+	input[type=reset]
+{
+    width:100%;
+    background-color: rgba(214, 26, 42, 0.836);
+    color:white ;
+    padding:14px 20px;
+    margin:8px o;
+    border:none;
+    border: radiurs 4px;
+	box-sizing: border-box;
+    cursor:pointer;
+    font-size:16px;
+
+
+}
+input[type=reset]:hover
+{
+	background-color: blue;
+}
+h1
+{
+	color:blue;
+	text-align:center;
+}
+
+select
+{
+	 width: 50%;
+     padding:14px 20px;
+    margin:8px o;
+    display: inline-block;
+    border:4px solid #ccc;
+    box-sizing:border-box;
+    font-size: 14px;
+}
+span
+	{
+		color: red;
+		font-size: 12px;
+	}
+div label
+
+
+</style>
+</head>
+<body>
+	<h1>Customer Registration Form</h1>
+	<div>
+		<form action="connection3.php" method="post"  onsubmit="return validation()">
+		<form name="regform" method="post">
+		<label for="First name">First name<br>
+		<input type="text" id="firstname" name="firstname" placeholder="enter first name">
+		<span id="ffirstname"></span></label><br><br>
+		<label for="Last name">Last name</label><br/>
+		<input type="text" id="lastname" name="lastname" placeholder="enter last name" >
+		<span id="llast"></span></label><br///><br>
+		
+		<label for gender>Gender</label><br//>
+		<input type="radio" id="gender"value="male" name="gender" >
+		<label for="male">Male</label>
+		<input type="radio" id="gender"value="female" name="gender">
+		<label for="female">Female</label><br///>
+		<span id="ggender"></span></label><br///><br>
+		
+		<label for="state">State</label>
+		<select id="state"name="state">
+			<option value=""></option>
+			<option value="kerala">kerala</option>
+			<option value="tamilnadu">TamilNadu</option>
+			
+		</select><br>
+		<span id="states"></span></label><br///><br>
+		<label for="district">District</label>
+		<select id="district" name="district">
+			<option value=""></option>
+			<option value="alp">Alapuzha</option>
+			<option value="ekm">Ernakulam</option>
+			<option value="tcr">Thrissur</option>>
+		</select><br>
+		<span id="districts"></span></label><br///><br>
+		
+		
+		<label for="email">Email  </label> <br>
+		<input type="text"id="email" name="email" placeholder="xy@gmail.com"><br>
+        <span id="emaill"></span></label>
+              <br><br>
+
+         <label for ="mobile">Mobile</label><br>
+	     <input type="text" pattern="^\d{10}$" id="mobile" name="mobile" placeholder="mobile no with out +91" maxlength="10"><br>
+	     <span id="mobilee"></span>
+	     <br><br>
+
+        <label for="address">Address </label><br>
+        <input type="text" id="address" name="address" placeholder="address" maxlength="50" ><br>
+        <span id="addresss"></span><br///><br>
+        
+	     
+	
+		<label for ="pincode">Pincode</label><br>
+	     <input type="text" id="pincode" name="pincode" placeholder="pin" maxlength="6"><br>
+	     <span id="pinn"></span>
+	     <br>
+		<br>
+        <label for="pass">Password             
+                    </label><br>
+        
+
+                    <input type="text" id="pass" name="pass" placeholder="enter password"  maxlength="15"><br>
+                    <span id="passs"></span><br><br>
+         <label for="conpass">Confirm Password
+                    </label><br>
+                    <input type="text" id="conpass" name="conpass" placeholder="reenter password" maxlength="15" >  <br>  
+                    <span id="conpasss"></span><br><br>       
+		<input type="submit" value="Submit">
+        <input type="reset" value="Reset">
+		</form>	
+	</div>
+	<script type="text/javascript">
+		function validation()
+		{
+
+
+			var firstname =document.getElementById('firstname').value;//give id//
+			var lastname =document.getElementById('lastname').value;
+			var gender =document.getElementById('gender').value;
+			var state =document.getElementById('state').value;
+			var email =document.getElementById('email').value;
+			var mobile =document.getElementById('mobile').value;
+			var address =document.getElementById('address').value;
+			var district =document.getElementById('district').value;
+			var pincode =document.getElementById('pincode').value;
+			var pass =document.getElementById('pass').value;
+			var conpass =document.getElementById('conpass').value;
+
+
+			if(firstname == "")
+			{
+				document.getElementById('ffirstname').innerHTML="please enter your name";
+				return false;
+			}
+
+			 if(firstname.length<3)//length number
+
+			    {
+					document.getElementById('ffirstname').innerHTML="enter more than 3 letters";
+				return false;
+			     }
+			    if(!isNaN(firstname))//length checking
+
+			    {
+					document.getElementById('ffirstname').innerHTML="please use alpahabets";
+				return false;
+			    }
+			else
+			{
+				document.getElementById('ffirstname').innerHTML="";
+			}
+			if(lastname == "")
+			{
+				document.getElementById('llast').innerHTML="enter your lastname";
+				return false;
+			}
+			   
+			if(gender == "")
+			{
+				document.getElementById('ggender').innerHTML="please choose gender";
+				return false;
+			}
+			if(state == "")
+			{
+				document.getElementById('states').innerHTML="please choose state";
+				return false;
+			}
+			
+			if(email == "")
+			{
+				document.getElementById('emaill').innerHTML="please enter your email";
+				return false;  
+
+			}
+			if(email.indexOf('@')<=0)
+			  {
+				document.getElementById('emaill').innerHTML="please enter a valid email";
+				
+
+			  }
+			  else
+			  {
+				document.getElementById('emaill').innerHTML="";
+			  }
+			if(mobile == "")
+			{
+				document.getElementById('mobilee').innerHTML="please enter mobile no";
+               return false;
+			}
+			   if(mobile.length<2)
+			    {
+			  	  document.getElementById('mobilee').innerHTML="please enter correct number ";
+			  	 return false;
+
+			    }
+			    if(isNaN(mobile))
+			    {
+			  	  document.getElementById('mobilee').innerHTML="please use numbers only";
+			  	 return false;
+			    }
+			    
+			  else
+			   {
+			  	  document.getElementById('mobilee').innerHTML="ok ";
+
+
+			   }
+			if(address == "")
+			{
+				document.getElementById('addresss').innerHTML="please fill address box";
+				return false;
+			}
+			if(district == "")
+			{
+				document.getElementById('districts').innerHTML="please choose district";
+				return false;
+			}
+			if(pincode == "")
+			{
+				document.getElementById('pinn').innerHTML="enter your pin";
+               return false;
+			}
+			  if(pincode.length<3)
+			    {
+			  	  document.getElementById('pinn').innerHTML="please enter correct pin ";
+			  	 return false;
+
+			    }
+			    if(isNaN(pincode))
+			    {
+			  	  document.getElementById('pinn').innerHTML="use number only";
+			  	 return false;
+			    }
+			    
+			   else
+			    {
+			  	  document.getElementById('pinn').innerHTML="ok ";
+			  	}
+			if(pass == "")
+			{
+				document.getElementById('passs').innerHTML="please provide password";
+				return false;
+
+			}
+
+			  if(pass.length<8)
+			  {
+				document.getElementById('passs').innerHTML="please use at least 8 characters password";
+				return false;
+
+			  }
+			  if(pass.search(/[0-9]/)==-1)
+			  {
+				document.getElementById('passs').innerHTML="please use at least one numeric characters in the box";
+				return false;
+
+			  }
+			  if(pass.search(/[a-z]/)==-1)
+			  {
+				document.getElementById('passs').innerHTML="please use at least one lowercase characters in the box";
+				return false;
+
+			  }
+			  if(pass.search(/[!\@\#\$\^\*\&]/)==-1)
+			  {
+				document.getElementById('passs').innerHTML="please use at least one special characters in the box";
+				return false;
+
+			  }
+			  else
+			  {
+				document.getElementById('passs').innerHTML="";
+			  }
+			if(conpass != pass)
+			{
+				document.getElementById('conpasss').innerHTML="psssword does not match";
+				return false;
+
+
+			}
+			else
+			  {
+				document.getElementById('conpasss').innerHTML="";
+			  }
+
+		}
+	</script>
+
+	</body>
+</html>
